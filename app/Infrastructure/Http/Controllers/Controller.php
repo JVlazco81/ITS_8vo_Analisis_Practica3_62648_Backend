@@ -12,8 +12,7 @@ class Controller
     public function register(Request $request, RegisterUser $registerUser)
     {
         $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
+            'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6',
         ]);
@@ -21,7 +20,7 @@ class Controller
         $fullName = trim($request->first_name . ' ' . $request->last_name);
 
         $user = $registerUser->execute(
-            $fullName,
+            $request->name,
             $request->email,
             $request->password
         );
