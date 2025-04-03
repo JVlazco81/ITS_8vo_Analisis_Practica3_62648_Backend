@@ -12,4 +12,8 @@ Route::prefix('auth')->group(function () {
     Route::middleware('auth:api')->group(function () {
         Route::post('/logout', [Controller::class, 'logout']); // Ruta para cerrar sesión (logout) de un usuario autenticado
     });
+
+    Route::middleware('auth:api')->get('/check', function () {
+        return response()->json(['message' => 'Token válido'], 200);
+    });
 });
