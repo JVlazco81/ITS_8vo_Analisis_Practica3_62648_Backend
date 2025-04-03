@@ -4,7 +4,7 @@ namespace App\Infrastructure\Persistence\Repositories;
 
 use App\Domain\Auth\Entities\User as DomainUser;
 use App\Domain\Auth\Repositories\UserRepositoryInterface;
-use App\Models\User as EloquentUser;
+use App\Infrastructure\Persistence\EloquentUser;
 
 class EloquentUserRepository implements UserRepositoryInterface
 {

@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Infrastructure\Persistence;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class EloquentUser extends Authenticatable implements JWTSubject
 {
+    protected $table = 'users'; //que tabla usar
+    
     protected $fillable = ['name', 'email', 'password'];
 
-    // Métodos requeridos por JWTSubject
     public function getJWTIdentifier()
     {
         return $this->getKey();

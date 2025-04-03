@@ -4,7 +4,7 @@ namespace App\Infrastructure\Services;
 
 use App\Application\Auth\Interfaces\JWTServiceInterface;
 use App\Domain\Auth\Entities\User as DomainUser;
-use App\Models\User as EloquentUser;
+use App\Infrastructure\Persistence\EloquentUser;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LaravelJWTService implements JWTServiceInterface
